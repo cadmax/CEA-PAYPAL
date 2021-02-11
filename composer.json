@@ -1,0 +1,22 @@
+{
+    "name": "jeffersonmv/contactform",
+    "description": "Paypal form CEA",
+    "authors": [{
+        "name": "Jefferson Moraes",
+        "email": "guinhow01@gmail.com"
+    }],
+    "require": {
+        "php": "^7.2.5|^8.0",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
+        "nesbot/carbon": "^2.45",
+        "paypal/rest-api-sdk-php": "^1.14"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Cea\\Paypal\\": "src/"
+        }
+    }
+}
