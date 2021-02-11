@@ -81,11 +81,11 @@ class PaypalController extends Controller
             if (Config::get('app.debug')) {
                 Session::put('error', 'Connection Timeout Exceeded');
 
-                return redirect(route('home'));
+                return redirect(route('paypal'));
             } else {
                 Session::put('error', 'Service down, try again later.');
 
-                return redirect(route('home'));
+                return redirect(route('paypal'));
             }
         }
 
@@ -127,7 +127,7 @@ class PaypalController extends Controller
 
             $paymentModel->update(['status' => 'CANCELED']);
 
-            return redirect(route('home'));
+            return redirect(route('paypal'));
         }
 
         $payment = Payment::get($payment_id, $this->_api_context);
@@ -150,6 +150,6 @@ class PaypalController extends Controller
             Session::put('error', 'Transaction failed.');
         }
 
-        return view('home');
+        return view('paypal');
     }
 }

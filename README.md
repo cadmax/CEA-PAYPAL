@@ -14,7 +14,7 @@ Este pacote foi desenvolvido com o objetivo de abstrair todo desenvolvimento de 
         "psr-4": {
             "App\\": "app/",
             ....
-            "Cea\\Paypal\\": "packages/cea/paypal/src/"
+            "cea\\Paypal\\": "vendor/cea/paypal/src"
         }
     }
 ````
@@ -40,7 +40,28 @@ php artisan config:cache
 
 ````
 php artisan vendor:publish --provider="cea\paypal\PaypalServiceProvider"
-```
+composer require paypal/rest-api-sdk-php
+php artisan migrate
+````
+
+- adicione suas credenciais do paypal ao env
+
+````
+PAYPAL_CLIENT_ID=
+PAYPAL_SECRET=
+PAYPAL_MODE=
+````
+
+- aponte suas rotas abaixo:
+
+````
+Route::get('/paypal', function () {
+    return view('paypal');
+})->name('paypal');
+
+Route::post('/payment', 'PaypalController@payment')->name('paypal_payment');
+Route::get('/payment', 'PaypalController@finish')->name('finishPayment');
+````
 
 
 ## License

@@ -81,9 +81,6 @@
 
 
 <div class="content">
-    <div style="text-align: center">
-        <img src="img/paypal-logo.png" alt="logo" width="200px">
-    </div>
     <form method="POST" id="payment-form"  action="{{ route('paypal_payment') }}">
         {{ csrf_field() }}
 

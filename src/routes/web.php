@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/paypal', function () {
+    return view('paypal');
+})->name('paypal');
 
 Route::post('/payment', 'PaypalController@payment')->name('paypal_payment');
 Route::get('/payment', 'PaypalController@finish')->name('finishPayment');
